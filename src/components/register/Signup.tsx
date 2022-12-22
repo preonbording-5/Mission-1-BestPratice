@@ -1,4 +1,4 @@
-import React,{useState, useCallback, useEffect, useMemo, ChangeEvent} from 'react'
+import React,{useState, useEffect, useMemo, ChangeEvent} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getAccessToken, setAccessToken } from '../../lib/utils/AcessTokenStore'
 import { User, UserValidation, } from '../../lib/types/User.interface'
@@ -66,6 +66,7 @@ const Singup = () => {
   placeholder='이메일을 입력해주세요'
   value={user.email}
   onChange={onChangeUser}
+  isError={user.email.length > 0 && !userValidation.email}
   />
   {user.email.length>0 && !userValidation.email && (
     <ErrMsg>이메일 형식이 올바르지 않습니다.</ErrMsg>
@@ -76,6 +77,8 @@ const Singup = () => {
   value={user.password}
   placeholder='비밀번호를 입력해주세요'
   onChange={onChangeUser}
+  isError={user.email.length > 0 && !userValidation.email}
+  
   />
     {user.password.length>0 && !userValidation.password && (
     <ErrMsg>8 글자 이상 입력해 주세요</ErrMsg>
