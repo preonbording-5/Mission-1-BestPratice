@@ -67,12 +67,19 @@ const Singup = () => {
   value={user.email}
   onChange={onChangeUser}
   />
+  {user.email.length>0 && !userValidation.email && (
+    <ErrMsg>이메일 형식이 올바르지 않습니다.</ErrMsg>
+  )}
   <Input
   type='password'
   name='password'
   value={user.password}
   placeholder='비밀번호를 입력해주세요'
+  onChange={onChangeUser}
   />
+    {user.password.length>0 && !userValidation.password && (
+    <ErrMsg>8 글자 이상 입력해 주세요</ErrMsg>
+  )}
   <Button
   onClick={handleSignUpClick}
   disabled={isUserValidation}
@@ -97,4 +104,10 @@ const Input = styled.input``
 const Button = styled.button`
   &:disabled {
   }
+`
+
+const ErrMsg = styled.p`
+color: red
+font-size : 10px
+margin: 5px 0 0 0
 `
