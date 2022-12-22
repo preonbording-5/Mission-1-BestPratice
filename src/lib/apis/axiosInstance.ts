@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios'
-import { setInterceptors } from './interceptors'
+import { setInterceptors } from './axiosInterceptors'
 
 const API_DEFAULT_TIMEOUT = 30 * 1000
 
