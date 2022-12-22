@@ -1,1 +1,47 @@
-export {}
+import { axiosInstanceWithToken } from './axiosInstance'
+
+interface ITodo {
+  id: number
+  todo: string
+  isCompleted: boolean
+}
+
+const postTodo = async (todo: Pick<ITodo, 'todo'>) => {
+  const url = '/todos'
+  const data = {
+    todo,
+  }
+  const response = await axiosInstanceWithToken.post(url, data)
+  return response
+}
+
+const getTodos = async () => {
+  const url = '/todos'
+
+  const response = await axiosInstanceWithToken.get(url)
+  return response
+}
+
+const putTodo = async (todoItem: ITodo) => {
+  const url = `/todos/${todoItem.id}`
+  const data = {
+    todo: todoItem.todo,
+    isCompleted: todoItem.isCompleted,
+  }
+
+  const response = await axiosInstanceWithToken.put(url, data)
+  return response
+}
+
+const deleteTodo = async (id: Pick<ITodo, 'id'>) => {
+  const url = `/todos/${id}`
+  const response = await axiosInstanceWithToken.delete(url)
+  return response
+}
+
+export default {
+  postTodo,
+  getTodos,
+  putTodo,
+  deleteTodo,
+}
