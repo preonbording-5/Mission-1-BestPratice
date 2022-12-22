@@ -1,7 +1,15 @@
-import React from 'react'
+import { Todo } from '../../pages/Todo';
 
-const TodoForm = () => {
-  return null
+interface TodoFormProps {
+  onAddTodo: (todo: Todo) => void;
 }
 
-export default TodoForm
+const TodoForm = ({ onAddTodo }: TodoFormProps) => {
+  return (
+    <form>
+      <input type='text' />
+    </form>
+  );
+};
+
+export default TodoForm;
