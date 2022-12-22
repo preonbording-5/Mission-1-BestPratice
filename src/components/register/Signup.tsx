@@ -1,14 +1,14 @@
-import React,{useState,useCallback, useEffect, useMemo, ChangeEvent} from 'react'
+import React,{useState, useCallback, useEffect, useMemo, ChangeEvent} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getAccessToken, setAccessToken } from '../../lib/utils/AcessTokenStore'
 import { User, UserValidation, } from '../../lib/types/User.interface'
 import getRegexVerification from '../../lib/utils/Getregex'
-
+import styled from 'styled-components'
 
 const Singup = () => {
   const navigate = useNavigate()
 
-  const [user, setUser] = useState({
+  const [user, setUser] = useState<User>({
     email:'',
     password:'',
   })
@@ -26,9 +26,16 @@ const Singup = () => {
   const onChangeUser=(e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     const regexp = getRegexVerification(name as 'email' | 'password', value)
+  
 
-    setUser({ ...user, [name]: value })
-    setUserValidation({ ...userValidation, [name]: regexp })
+    setUser({
+      ...user, 
+      [name]: value
+  })
+    setUserValidation({ 
+      ...userValidation, 
+      [name]: regexp 
+    })
   }
   
   const handleSignUpClick =async () => {
@@ -51,28 +58,43 @@ const Singup = () => {
 
 
   return (
-<div>
-  <input
+<WholeWrap>
+  <p>회원가입</p>
+  <Input
   type='email'
   name='email'
   placeholder='이메일을 입력해주세요'
   value={user.email}
   onChange={onChangeUser}
   />
-  <input
+  <Input
   type='password'
   name='password'
   value={user.password}
   placeholder='비밀번호를 입력해주세요'
   />
-  <button
+  <Button
   onClick={handleSignUpClick}
   disabled={isUserValidation}
   > 
     회원가입
-  </button>
-</div>
+  </Button>
+</WholeWrap>
   ) 
 }
 
 export default Singup
+
+
+const WholeWrap = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+`
+
+const Input = styled.input``
+
+const Button = styled.button`
+  &:disabled {
+  }
+`
