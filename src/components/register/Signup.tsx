@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, ChangeEvent } from 'react'
+import { useState, useEffect, useMemo, ChangeEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getAccessToken, setAccessToken } from '../../lib/utils/AcessTokenStore'
 import { User, UserValidation } from '../../lib/types/User.interface'
@@ -44,8 +44,10 @@ const Singup = () => {
       alert('회원가입 성공~!')
       setAccessToken(response)
       navigate('/todo')
-    } catch (error: any) {
-      alert(error.response?.data?.message || '회원가입 실패~!')
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message || '회원가입 실패~!')
+      }
     }
   }
 
@@ -53,7 +55,7 @@ const Singup = () => {
     if (getAccessToken()) {
       navigate('/todo')
     }
-  }, [])
+  }, [navigate])
 
   return (
     <WholeWrap>
@@ -91,7 +93,6 @@ export default Singup
 
 const WholeWrap = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
 `
 
@@ -103,7 +104,7 @@ const Button = styled.button`
 `
 
 const ErrMsg = styled.p`
-color: red
-font-size : 10px
-margin: 5px 0 0 0
+  color: red;
+  font-size: 10px;
+  margin: 5px 0 0 0;
 `

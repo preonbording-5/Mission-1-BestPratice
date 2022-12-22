@@ -1,10 +1,9 @@
-import React, { ChangeEvent, useEffect, useMemo, useState } from 'react'
+import { ChangeEvent, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
 import { getAccessToken, setAccessToken } from '../../lib/utils/AcessTokenStore'
 import { User, UserValidation } from '../../lib/types/User.interface'
-import styled from 'styled-components'
 import getRegexVerification from '../../lib/utils/Getregex'
+import styled from 'styled-components'
 
 const Signin = () => {
   const navigate = useNavigate()
@@ -38,8 +37,10 @@ const Signin = () => {
       setAccessToken(response)
       // response.data.access_token
       navigate('/todo')
-    } catch (e: any) {
-      alert(e.response?.data?.message || '로그인 실패')
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message || '로그인에 실패했습니다')
+      }
     }
   }
 
