@@ -18,19 +18,19 @@ interface TodoDataType {
 const DUMMY_TODOS: Todo[] = [
   {
     id: 1,
-    todo: '투두 1',
+    todo: '투두1',
     isCompleted: false,
     userId: 1,
   },
   {
     id: 2,
-    todo: '투두 2',
+    todo: '투두2',
     isCompleted: true,
     userId: 1,
   },
   {
     id: 3,
-    todo: '투두 3',
+    todo: '투두3',
     isCompleted: false,
     userId: 1,
   },
@@ -42,8 +42,10 @@ const Todo = () => {
     todos: DUMMY_TODOS,
     error: null,
   });
+
   const { loading, todos, error } = todoData;
 
+  // 투두리스트 추가
   const onAddTodo = (newTodo: Todo) => {
     setTodoData((prev) => ({
       ...prev,

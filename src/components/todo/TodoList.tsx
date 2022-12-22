@@ -1,4 +1,5 @@
 import { Todo } from '../../pages/Todo';
+import TodoItem from './TodoItem';
 
 interface TodoListProps {
   todos: Todo[];
@@ -8,7 +9,14 @@ interface TodoListProps {
 }
 
 const TodoList = ({ todos, onDeleteTodo, onUpdateTodo, onCompleteTodo }: TodoListProps) => {
-  return <ul></ul>;
+  return (
+    <ul>
+      {todos.map((item) => {
+        return <TodoItem key={item.id} todo={item} onDeleteTodo={onDeleteTodo} onUpdateTodo={onUpdateTodo}
+        onCompleteTodo={onCompleteTodo} />;
+      })}
+    </ul>
+  );
 };
 
 export default TodoList;
