@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import TodoForm from '../components/todo/TodoForm';
-import TodoList from '../components/todo/TodoList';
+import { useState } from 'react'
+import TodoForm from '../components/todo/TodoForm'
+import TodoList from '../components/todo/TodoList'
 
 export interface Todo {
-  id: number;
-  todo: string;
-  isCompleted: boolean;
-  userId: number;
+  id: number
+  todo: string
+  isCompleted: boolean
+  userId: number
 }
 
 interface TodoDataType {
-  loading: boolean;
-  todos: Todo[];
-  error: null | Error;
+  loading: boolean
+  todos: Todo[]
+  error: null | Error
 }
 
 const DUMMY_TODOS: Todo[] = [
@@ -34,29 +34,29 @@ const DUMMY_TODOS: Todo[] = [
     isCompleted: false,
     userId: 1,
   },
-];
+]
 
 const Todo = () => {
   const [todoData, setTodoData] = useState<TodoDataType>({
     loading: false,
     todos: DUMMY_TODOS,
     error: null,
-  });
-  const { loading, todos, error } = todoData;
+  })
+  const { loading, todos, error } = todoData
 
   const onAddTodo = (newTodo: Todo) => {
     setTodoData((prev) => ({
       ...prev,
       todos: [...prev.todos, newTodo],
-    }));
-  };
+    }))
+  }
 
   const onDeleteTodo = (todoId: number) => {
     setTodoData((prev) => ({
       ...prev,
       todos: prev.todos.filter((prevTodo) => prevTodo.id !== todoId),
-    }));
-  };
+    }))
+  }
 
   const onUpdateTodo = (todoId: number, text: string) => {
     setTodoData((prev) => ({
@@ -64,8 +64,8 @@ const Todo = () => {
       todos: prev.todos.map((prevTodo) =>
         prevTodo.id === todoId ? { ...prevTodo, todo: text } : prevTodo,
       ),
-    }));
-  };
+    }))
+  }
 
   const onCompleteTodo = (todoId: number) => {
     setTodoData((prev) => ({
@@ -73,10 +73,10 @@ const Todo = () => {
       todos: prev.todos.map((prevTodo) =>
         prevTodo.id === todoId ? { ...prevTodo, isCompleted: !prevTodo.isCompleted } : prevTodo,
       ),
-    }));
-  };
+    }))
+  }
 
-  if (error) return <div>error!</div>;
+  if (error) return <div>error!</div>
 
   return !loading ? (
     <div>
@@ -90,7 +90,7 @@ const Todo = () => {
     </div>
   ) : (
     <div>loading...</div>
-  );
-};
+  )
+}
 
-export default Todo;
+export default Todo

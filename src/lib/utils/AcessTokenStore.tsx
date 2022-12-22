@@ -12,5 +12,4 @@ export const getAccessToken = () => {
 export const setAccessToken = (accessToken: string) =>
   localStorage.setItem(ACCESS_TOKEN, JSON.stringify(accessToken))
 
-
 export const clearAccessToken = () => localStorage.removeItem(ACCESS_TOKEN)
