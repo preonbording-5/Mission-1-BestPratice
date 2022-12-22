@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React,{useState, useEffect, useMemo, ChangeEvent} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getAccessToken, setAccessToken } from '../../lib/utils/AcessTokenStore'
@@ -6,8 +6,6 @@ import { User, UserValidation, } from '../../lib/types/User.interface'
 import getRegexVerification from '../../lib/utils/Getregex'
 import styled from 'styled-components'
 
-=======
->>>>>>> main
 const Singup = () => {
   const navigate = useNavigate()
 
