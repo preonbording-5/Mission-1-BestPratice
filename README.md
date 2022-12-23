@@ -80,7 +80,7 @@ npm start
   - 비밀번호 조건: 8자 이상
   - 입력된 이메일과 비밀번호가 위 조건을 만족할 때만 버튼이 활성화 
   
- ✓ 유효성 검사
+ > 📌 유효성 검사
  - 정규 표현식을 사용하였으며 따로 분리해서 이용하였습니다
  - 이유 : 가독성, 리팩토링 수월, 정규 표현식이 많아졌을 경우 확장성 고려했기 때문
    
@@ -102,6 +102,26 @@ export default getRegexVerification
 - 로그인 API를 호출하고, 올바른 응답을 받았을 때 `/todo` 경로로 이동
   - 로그인 API는 로그인이 성공했을 시 Response Body에 JWT를 포함해서 응답
   - 응답받은 JWT는 로컬 스토리지에 저장
+
+  > 📌 API 
+ - axios 사용
+ - 이유 : 편의성, 인터셉터(공식 문서 참고)
+ ```
+ import { AxiosInstance } from 'axios'
+
+export const setInterceptors = (axiosInstance: AxiosInstance) => {
+  axiosInstance.interceptors.request.use(
+    (config) => {
+      config.headers!.Authorization = `Bearer ${process.env.REACT_APP_TEST_TOKEN}`
+      return config
+    },
+    (error) => Promise.reject(error),
+  )
+  return axiosInstance
+}
+ ```
+
+
 
 ####  ✅ Assignment3
 
@@ -129,23 +149,7 @@ export default getRegexVerification
 
 
  
-  ### 2. API 호출
- - axios 사용
- - 이유 : 편의성, 인터셉터(공식 문서 참고)
- ```
- import { AxiosInstance } from 'axios'
 
-export const setInterceptors = (axiosInstance: AxiosInstance) => {
-  axiosInstance.interceptors.request.use(
-    (config) => {
-      config.headers!.Authorization = `Bearer ${process.env.REACT_APP_TEST_TOKEN}`
-      return config
-    },
-    (error) => Promise.reject(error),
-  )
-  return axiosInstance
-}
- ```
  
 ## 🎄 src 폴더 구조
 
