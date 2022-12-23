@@ -132,6 +132,20 @@ export default getRegexVerification
   ### 2. API 호출
  - axios 사용
  - 이유 : 편의성, 인터셉터(공식 문서 참고)
+ ```
+ import { AxiosInstance } from 'axios'
+
+export const setInterceptors = (axiosInstance: AxiosInstance) => {
+  axiosInstance.interceptors.request.use(
+    (config) => {
+      config.headers!.Authorization = `Bearer ${process.env.REACT_APP_TEST_TOKEN}`
+      return config
+    },
+    (error) => Promise.reject(error),
+  )
+  return axiosInstance
+}
+ ```
  
 ## 🎄 src 폴더 구조
 
