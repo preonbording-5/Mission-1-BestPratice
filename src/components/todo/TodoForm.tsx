@@ -1,26 +1,29 @@
-import { useState } from 'react'
-import { Todo } from '../../pages/Todo'
+import { useState } from 'react';
+import todoApi, { ITodo } from '../../lib/apis/todoApi';
 
 interface TodoFormProps {
-  onAddTodo: (newTodo: Todo) => void
+  onAddTodo: (newTodo: ITodo) => void;
 }
 
 const TodoForm = ({ onAddTodo }: TodoFormProps) => {
-  const [todo, setTodo] = useState('')
+  const [todo, setTodo] = useState('');
 
   const handleAddTodo = (e: React.FormEvent<HTMLFormElement | HTMLButtonElement>) => {
-    e.preventDefault()
-    const newTodo = {
-      id: Date.now(),
-      todo,
-      isCompleted: false,
-      userId: 1,
-    }
-    onAddTodo(newTodo)
-    setTodo('')
-  }
+    e.preventDefault();
+    todoApi
+      .postTodo(todo)
+      .then((res) => {
+        onAddTodo(res.data);
+      })
+      .catch((error) => {
+        if (error instanceof Error) {
+          alert(error.message);
+        }
+      });
+    setTodo('');
+  };
 
-  const handleChangeTodo = (e: React.ChangeEvent<HTMLInputElement>) => setTodo(e.target.value)
+  const handleChangeTodo = (e: React.ChangeEvent<HTMLInputElement>) => setTodo(e.target.value);
 
   return (
     <form onSubmit={handleAddTodo}>
@@ -29,7 +32,7 @@ const TodoForm = ({ onAddTodo }: TodoFormProps) => {
         추가
       </button>
     </form>
-  )
-}
+  );
+};
 
-export default TodoForm
+export default TodoForm;

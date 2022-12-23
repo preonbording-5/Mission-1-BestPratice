@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fb234ae-1f04-4040-b341-b104c47109b2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/lib/apis/authApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/apis/authApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/apis/axiosInterceptors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/apis/axiosInterceptors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/apis/todoApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/apis/todoApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/register/Signup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/Signup.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,6 +12,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/layout" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -67,5 +72,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

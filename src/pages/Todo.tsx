@@ -1,62 +1,66 @@
-import { useState } from 'react'
-import TodoForm from '../components/todo/TodoForm'
-import TodoList from '../components/todo/TodoList'
-
-export interface Todo {
-  id: number
-  todo: string
-  isCompleted: boolean
-  userId: number
-}
+import { useState, useEffect } from 'react';
+import TodoForm from '../components/todo/TodoForm';
+import TodoList from '../components/todo/TodoList';
+import todoApi, { ITodo } from '../lib/apis/todoApi';
 
 interface TodoDataType {
-  loading: boolean
-  todos: Todo[]
-  error: null | Error
+  loading: boolean;
+  todos: ITodo[];
+  error: null | Error;
 }
 
-const DUMMY_TODOS: Todo[] = [
-  {
-    id: 1,
-    todo: '투두 1',
-    isCompleted: false,
-    userId: 1,
-  },
-  {
-    id: 2,
-    todo: '투두 2',
-    isCompleted: true,
-    userId: 1,
-  },
-  {
-    id: 3,
-    todo: '투두 3',
-    isCompleted: false,
-    userId: 1,
-  },
-]
+const initialTodoData = {
+  loading: false,
+  todos: [],
+  error: null,
+};
+
+const loadingTodoData = (prev: TodoDataType) => ({
+  ...prev,
+  loading: true,
+});
+
+const successTodoData = (prev: TodoDataType, todos: ITodo[]) => ({
+  ...prev,
+  loading: false,
+  todos,
+});
+
+const errorTodoData = (prev: TodoDataType, error: Error) => ({
+  ...prev,
+  loading: false,
+  error,
+});
 
 const Todo = () => {
-  const [todoData, setTodoData] = useState<TodoDataType>({
-    loading: false,
-    todos: DUMMY_TODOS,
-    error: null,
-  })
-  const { loading, todos, error } = todoData
+  const [todoData, setTodoData] = useState<TodoDataType>(initialTodoData);
+  const { loading, todos, error } = todoData;
 
-  const onAddTodo = (newTodo: Todo) => {
+  useEffect(() => {
+    setTodoData((prev) => loadingTodoData(prev));
+    todoApi
+      .getTodos()
+      .then((res) => {
+        setTodoData((prev) => successTodoData(prev, res.data));
+      })
+      .catch((err) => {
+        setTodoData((prev) => errorTodoData(prev, err));
+      });
+  }, []);
+
+  const onAddTodo = (newTodo: ITodo) => {
     setTodoData((prev) => ({
       ...prev,
       todos: [...prev.todos, newTodo],
-    }))
-  }
+    }));
+  };
 
   const onDeleteTodo = (todoId: number) => {
     setTodoData((prev) => ({
       ...prev,
       todos: prev.todos.filter((prevTodo) => prevTodo.id !== todoId),
-    }))
-  }
+    }));
+  };
 
   const onUpdateTodo = (todoId: number, text: string) => {
     setTodoData((prev) => ({
@@ -64,8 +68,8 @@ const Todo = () => {
       todos: prev.todos.map((prevTodo) =>
         prevTodo.id === todoId ? { ...prevTodo, todo: text } : prevTodo,
       ),
-    }))
-  }
+    }));
+  };
 
   const onCompleteTodo = (todoId: number) => {
     setTodoData((prev) => ({
@@ -73,10 +77,10 @@ const Todo = () => {
       todos: prev.todos.map((prevTodo) =>
         prevTodo.id === todoId ? { ...prevTodo, isCompleted: !prevTodo.isCompleted } : prevTodo,
       ),
-    }))
-  }
+    }));
+  };
 
-  if (error) return <div>error!</div>
+  if (error) return <div>error!</div>;
 
   return !loading ? (
     <div>
@@ -90,7 +94,7 @@ const Todo = () => {
     </div>
   ) : (
     <div>loading...</div>
-  )
-}
+  );
+};
 
-export default Todo
+export default Todo;
