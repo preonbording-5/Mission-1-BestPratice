@@ -107,7 +107,7 @@ npm start
 
 <hr/>  
 
-### commit msg
+### ✔️commit msg
 
 > 해당 프로젝트는 comitlint를 활용하여 다음과 같은 commit convention prefix를 가집니다.
 
@@ -123,3 +123,7 @@ npm start
 | style    | Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc) |
 | test     | Adding missing tests or correcting existing tests                                                      |
 
+### 📌 기술 스택 및 라이브러리
+```
+typescript, axios, styled-components, react-router-dom 
+```
