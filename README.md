@@ -152,6 +152,9 @@ export const setInterceptors = (axiosInstance: AxiosInstance) => {
 ```
 📦 src
 ┣ 📂components
+┃ ┣ 📂 layout
+┃ ┃ ┣ 📄 Layout.tsx
+┃ ┃ ┗ 📄 Page.tsx
 ┃ ┣ 📂 register
 ┃ ┃ ┣ 📄 SignIn.tsx
 ┃ ┃ ┗ 📄 SignUp.tsx
