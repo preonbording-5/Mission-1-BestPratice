@@ -70,8 +70,52 @@ npm start
  
  ## 📌 Best Practice
 ---
+### 1. 초기 세팅 
 
-### 1. 로그인 / 회원가입
+#### ✅ Eslint
+```typescript
+{
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "rules": {
+    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }],
+    "camelcase": "error",
+    "spaced-comment": "error",
+    "quotes": ["error", "single"],
+    "no-duplicate-imports": "error"
+  }
+}
+```
+
+### 2. 로그인 / 회원가입
 
 #### ✅ Assignment1
 
@@ -158,7 +202,7 @@ export const setInterceptors = (axiosInstance: AxiosInstance) => {
 
 ---
 
-### 2. 투두 리스트
+### 3. 투두 리스트
 
 
 ####  ✅ Assignment4
