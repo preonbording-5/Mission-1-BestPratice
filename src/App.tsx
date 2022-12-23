@@ -1,7 +1,7 @@
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 // import Todo from './pages/Todo'
-import Singup from './components/register/Signup'
+import Signup from './components/register/Signup'
 import Signin from './components/register/Signin'
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
           path='/'
           element={
             <>
-              <Singup />
+              <Signup />
               <Signin />
             </>
           }

@@ -6,7 +6,7 @@ import { User, UserValidation } from '../../lib/types/User.interface'
 import getRegexVerification from '../../lib/utils/Getregex'
 import styled from 'styled-components'
 
-const Singup = () => {
+const Signup = () => {
   const navigate = useNavigate()
 
   const [user, setUser] = useState<User>({
@@ -93,7 +93,7 @@ const Singup = () => {
   )
 }
 
-export default Singup
+export default Signup
 
 const WholeWrap = styled.div`
   width: 100%;
