@@ -81,8 +81,8 @@ npm start
   - 입력된 이메일과 비밀번호가 위 조건을 만족할 때만 버튼이 활성화 
   
  > 📌 유효성 검사
- - 정규 표현식을 사용하였으며 따로 분리해서 이용하였습니다
- - 이유 : 가독성, 리팩토링 수월, 정규 표현식이 많아졌을 경우 확장성 고려했기 때문
+ - 정규 표현식을 사용하였으며 따로 분리해서 이용
+ - 이유 : 가독성, 리팩토링 수월, 정규 표현식이 많아졌을 경우 확장성 고려
    
  ```typescript
  // src/lib/utils/Getregex.tsx
@@ -98,6 +98,16 @@ const getRegexVerification = (type: 'email' | 'password', value: string) => {
 
 export default getRegexVerification
  ```
+  - useState 를 사용하여 유효성 검사 결과를 관리
+
+ ```typescript
+ // src/components/register/Signin.tsx
+ 
+   const [userValidation, setUserValidation] = useState<UserValidation>({
+    email: false,
+    password: false,
+  })
+ ```
 
 #### ✅ Assignment2
 
@@ -106,13 +116,13 @@ export default getRegexVerification
   - 응답받은 JWT는 로컬 스토리지에 저장
 
 > 📌 API 호출
- - axios 사용
+ - axios 사용하였습니다.
  - 이유 : 편의성, 인터셉터(공식 문서 참고)
  ```typescript
  // src/lib/apis/axiosIntercepters.ts
  
  import { AxiosInstance } from 'axios'
-
+ 
 export const setInterceptors = (axiosInstance: AxiosInstance) => {
   axiosInstance.interceptors.request.use(
     (config) => {
@@ -135,6 +145,7 @@ export const setInterceptors = (axiosInstance: AxiosInstance) => {
 
 ```typescript
 // src/components/register/Signin.tsx
+
   const handlLoginClick = async () => {
     try {
       const response = await postSignIn.postSignIn(user)
