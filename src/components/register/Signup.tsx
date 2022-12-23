@@ -61,34 +61,34 @@ const Singup = () => {
     <WholeWrap>
       <Title>회원가입</Title>
       <InputWhole>
-      <Input
-        type='email'
-        name='email'
-        id='email'
-        placeholder='이메일을 입력해주세요'
-        value={user.email}
-        onChange={onChangeUser}
-        // isError={user.email.length > 0 && !userValidation.email}
+        <Input
+          type='email'
+          name='email'
+          id='email'
+          placeholder='이메일을 입력해주세요'
+          value={user.email}
+          onChange={onChangeUser}
+          // isError={user.email.length > 0 && !userValidation.email}
         />
-      {user.email.length > 0 && !userValidation.email && (
-        <ErrMsg>이메일 형식이 올바르지 않습니다.</ErrMsg>
+        {user.email.length > 0 && !userValidation.email && (
+          <ErrMsg>이메일 형식이 올바르지 않습니다.</ErrMsg>
         )}
-      <Input
-        type='password'
-        name='password'
-        id='password'
-        value={user.password}
-        placeholder='비밀번호를 입력해주세요'
-        onChange={onChangeUser}
-        // isError={user.email.length > 0 && !userValidation.email}
+        <Input
+          type='password'
+          name='password'
+          id='password'
+          value={user.password}
+          placeholder='비밀번호를 입력해주세요'
+          onChange={onChangeUser}
+          // isError={user.email.length > 0 && !userValidation.email}
         />
-      {user.password.length > 0 && !userValidation.password && (
-        <ErrMsg>8 글자 이상 입력해 주세요</ErrMsg>
+        {user.password.length > 0 && !userValidation.password && (
+          <ErrMsg>8 글자 이상 입력해 주세요</ErrMsg>
         )}
-      <Button onClick={handleSignUpClick} disabled={isUserValidation}>
-        회원가입
-      </Button>
-        </InputWhole>
+        <Button onClick={handleSignUpClick} disabled={isUserValidation}>
+          회원가입
+        </Button>
+      </InputWhole>
     </WholeWrap>
   )
 }
