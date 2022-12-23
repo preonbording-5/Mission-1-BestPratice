@@ -44,6 +44,7 @@ const Todo = () => {
         setTodoData((prev) => successTodoData(prev, res.data));
       })
       .catch((err) => {
+        console.log(err);
         setTodoData((prev) => errorTodoData(prev, err));
       });
   }, []);

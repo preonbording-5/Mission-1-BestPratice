@@ -1,4 +1,4 @@
-const ACCESS_TOKEN_KEY = 'token'
+const ACCESS_TOKEN_KEY = 'access_token'
 
 export const getAccessToken = () => {
   try {
