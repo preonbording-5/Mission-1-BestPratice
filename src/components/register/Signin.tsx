@@ -1,5 +1,7 @@
 import { ChangeEvent, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+
+import postSignIn from '../../lib/apis/authApi'
 import { getAccessToken, setAccessToken } from '../../lib/utils/AcessTokenStore'
 import { User, UserValidation } from '../../lib/types/User.interface'
 import getRegexVerification from '../../lib/utils/Getregex'
@@ -31,11 +33,9 @@ const Signin = () => {
 
   const handlLoginClick = async () => {
     try {
-      const response = 'api 호출 구간'
-      // await Auth.SignIn(user)
+      const response = await postSignIn.postSignIn(user)
       alert('로그인 성공')
-      setAccessToken(response)
-      // response.data.access_token
+      setAccessToken(response.data.access_token)
       navigate('/todo')
     } catch (error) {
       if (error instanceof Error) {
