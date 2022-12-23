@@ -205,6 +205,15 @@ export const setInterceptors = (axiosInstance: AxiosInstance) => {
     } 
   }
 ```
+```typescript
+// src/pages/Todo.tsx
+
+  useEffect(() => {
+    if (!getAccessToken()) {
+      navigate('/');
+    }
+  }, [navigate]);
+```
 
 ---
 
