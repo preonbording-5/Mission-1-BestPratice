@@ -193,6 +193,7 @@ export const setInterceptors = (axiosInstance: AxiosInstance) => {
   - 로컬 스토리지에 토큰이 있는 상태로 `/` 페이지에 접속한다면 `/todo` 경로로 리다이렉트 
   - 로컬 스토리지에 토큰이 없는 상태로 `/todo`페이지에 접속한다면 `/` 경로로 리다이렉트 
 
+> 📌 로그인/회원가입 성공 시 모두  `/todo`경로로 리다이렉트
 ```typescript
 // src/components/register/Signin.tsx
 
@@ -205,6 +206,18 @@ export const setInterceptors = (axiosInstance: AxiosInstance) => {
     } 
   }
 ```
+```typescript
+// src/components/register/Signup.tsx
+ 
+const handleSignUpClick = async () => {
+    try {
+      const response = await postSignUp.postSignUp(user)
+      alert('회원가입 성공~!')
+      setAccessToken(response.data.access_token)
+      navigate('/todo')
+    }
+```
+
 ```typescript
 // src/pages/Todo.tsx
 
