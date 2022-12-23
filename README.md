@@ -1,65 +1,57 @@
-# Getting Started with Create React App
+# 🚀 원티드 프리온보딩 프론트엔드 인턴십 WEEK 1-1 과제 (수정 중)
 
-> 빠른 개발환경 셋팅을 위한 보일러플레이트입니다
 
-## Start
+## 과제 소개 및 목적  
+<hr/>  
+
+## 🖥️ 배포 링크
+<hr/>   
+
+
+## 👨‍👩‍👧‍👦 팀 소개
+<hr/>   
+
+## ✨ 프로젝트 실행방법
 
 ```
 npm install
-npm prepare
+npm start
 ```
-
-## Available Scripts
-
-> 프로젝트안에서 다음과 같은 스크립트를 실행할 수 있습니다.
-
-### `npm prepare`
-
-:: husky를 설치합니다
-
-### `npm start`
-
-:: dev server를 실행합니다
-
-### `npm test`
-
-:: 작성된 테스트를 실행합니다
-
-### `npm run build`
-
-::: build를 실행합니다
-
-### `npm run lint`
-
-:: src/ 이하에 존재하는js,jsx,ts,tsx의 확장자를 가진 파일의 lint check 합니다.
-
-### `npm run lint:fix`
-
-:: src/ 이하에 존재하는 js,jsx,ts,tsx의 확장자를 가진 파일을 lint check하고 fix 합니다.
-
-### `npm run format`
-
-:: src/ 이하에 존재하는 js,jsx,ts,tsx,css,md,json 확장자를 가진 파일을 prettierrc의 config에 맞게 수정합니다
-
-## husky
-
-### pre-push
-
-> 해당 프로젝트는 push하기전 build를 진행합니다.
+<hr/>  
+## src 폴더 구조
 
 ```
-npm run build
+📦 src
+┣ 📂components
+┃ ┣ 📂 register
+┃ ┃ ┣ 📄 SignIn.tsx
+┃ ┃ ┗ 📄 SignUp.tsx
+┃ ┣ 📂 todo
+┃ ┃ ┣ 📄 TodoForm.tsx
+┃ ┃ ┣ 📄 TodoItem.tsx
+┃ ┃ ┗ 📄 TodoList.tsx
+┃ ┗ 📄 Navbar.tsx
+┣ 📂 lib
+┃ ┣ 📂 apis
+┃ ┃ ┣ 📄 authApi.ts
+┃ ┃ ┣ 📄 axiosInstance.ts
+┃ ┃ ┣ 📄 axiosInterceptors.ts
+┃ ┃ ┗ 📄 tokenStore.ts
+┃ ┣ 📂 types
+┃ ┃ ┣ 📄 index.tsx
+┃ ┃ ┗ 📄 User.interface.tsx
+┃ ┗ 📂 utils
+┃   ┣ 📄 AcessTokenStore.tsx
+┃   ┣ 📄 Getregex.tsx
+┃   ┗ 📄 index.tsx
+┣ 📂pages
+┃ ┣ 📄 Register.tsx
+┃ ┗ 📄 Todo.tsx 
+┣ 📄 App.tsx
+┗ 📄 index.tsx
 ```
 
-### pre-commit
-
-> 해당 프로젝트는 commit을 하기전 lint, format script를 실행합니다.
-
-```
-npm run lint
-npm run format
-```
-
+<hr/>  
 ### commit msg
 
 > 해당 프로젝트는 comitlint를 활용하여 다음과 같은 commit convention prefix를 가집니다.
