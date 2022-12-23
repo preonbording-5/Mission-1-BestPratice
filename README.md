@@ -239,11 +239,19 @@ const handleSignUpClick = async () => {
 - 리스트 페이지에는 투두 리스트의 내용과 완료 여부가 표시
 - 리스트 페이지에는 입력창과 추가 버튼이 있고, 추가 버튼을 누르면 입력창의 내용이 새로운 투두 리스트로 추가
 
+####  ✅ Assignment5
+
+- 투두 리스트의 수정, 삭제 기능을 구현
+  - 투두 리스트의 개별 아이템 우측에 수정버튼이 존재하고 해당 버튼을 누르면 수정모드가 활성화되고 투두 리스트의 내용을 수정
+  - 수정모드에서는 개별 아이템의 우측에 제출버튼과 취소버튼이 표시되며 해당 버튼을 통해서 수정 내용을 제출하거나 수정을 취소
+  - 투두 리스트의 개별 아이템 우측에 삭제버튼이 존재하고 해당 버튼을 누르면 투두 리스트가 삭제
+
 <details>
-  <summary>투두 리스트 완료 여부 </summary>
+  <summary> ✅ 투두 리스트 수정 및 완료 여부 코드</summary>
   <div markdown="1">
-    ```typescript
-      const handleCompleteTodo = () => {
+    
+```typescript
+ const handleCompleteTodo = () => {
     todoApi.putTodo({ id, todo, isCompleted: !isCompleted, userId }).then((res) => {
       onCompleteTodo(id);
       onCloseEdit();
@@ -269,18 +277,10 @@ const handleSignUpClick = async () => {
     </Item>
   );
 };
-    ```
-    </div>
-    </details>
 
-####  ✅ Assignment5
-
-- 투두 리스트의 수정, 삭제 기능을 구현
-  - 투두 리스트의 개별 아이템 우측에 수정버튼이 존재하고 해당 버튼을 누르면 수정모드가 활성화되고 투두 리스트의 내용을 수정
-  - 수정모드에서는 개별 아이템의 우측에 제출버튼과 취소버튼이 표시되며 해당 버튼을 통해서 수정 내용을 제출하거나 수정을 취소
-  - 투두 리스트의 개별 아이템 우측에 삭제버튼이 존재하고 해당 버튼을 누르면 투두 리스트가 삭제
-
-
+```
+  </div>
+  </details>
  
 
  
