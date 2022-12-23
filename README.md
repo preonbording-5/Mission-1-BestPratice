@@ -103,7 +103,7 @@ export default getRegexVerification
   - 로그인 API는 로그인이 성공했을 시 Response Body에 JWT를 포함해서 응답
   - 응답받은 JWT는 로컬 스토리지에 저장
 
-  > 📌 API 
+> 📌 API 호출
  - axios 사용
  - 이유 : 편의성, 인터셉터(공식 문서 참고)
  ```
