@@ -1,61 +1,61 @@
-import { useState, useEffect, useMemo, ChangeEvent } from 'react'
-import { useNavigate } from 'react-router-dom'
-import postSignUp from '../../lib/apis/authApi'
-import { getAccessToken, setAccessToken } from '../../lib/utils/AcessTokenStore'
-import { User, UserValidation } from '../../lib/types/User.interface'
-import getRegexVerification from '../../lib/utils/Getregex'
-import styled from 'styled-components'
+import { useState, useEffect, useMemo, ChangeEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
+import postSignUp from '../../lib/apis/authApi';
+import { getAccessToken, setAccessToken } from '../../lib/utils/AcessTokenStore';
+import { User, UserValidation } from '../../lib/types/User.interface';
+import getRegexVerification from '../../lib/utils/Getregex';
+import styled from 'styled-components';
 
 const Signup = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [user, setUser] = useState<User>({
     email: '',
     password: '',
-  })
+  });
 
   const [userValidation, setUserValidation] = useState<UserValidation>({
     email: false,
     password: false,
-  })
+  });
 
   const isUserValidation = useMemo(
     () => !(userValidation.email && userValidation.password),
     [userValidation.email, userValidation.password],
-  )
+  );
 
   const onChangeUser = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
-    const regexp = getRegexVerification(name as 'email' | 'password', value)
+    const { name, value } = e.target;
+    const regexp = getRegexVerification(name as 'email' | 'password', value);
 
     setUser({
       ...user,
       [name]: value,
-    })
+    });
     setUserValidation({
       ...userValidation,
       [name]: regexp,
-    })
-  }
+    });
+  };
 
   const handleSignUpClick = async () => {
     try {
-      const response = await postSignUp.postSignUp(user)
-      alert('회원가입 성공~!')
-      setAccessToken(response.data.access_token)
-      navigate('/todo')
+      const response = await postSignUp.postSignUp(user);
+      alert('회원가입 성공~!');
+      setAccessToken(response.data.access_token);
+      navigate('/todo');
     } catch (error) {
       if (error instanceof Error) {
-        alert(error.message || '회원가입 실패~!')
+        alert(error.message || '회원가입 실패~!');
       }
     }
-  }
+  };
 
   useEffect(() => {
     if (getAccessToken()) {
-      navigate('/todo')
+      navigate('/todo');
     }
-  }, [navigate])
+  }, [navigate]);
 
   return (
     <WholeWrap>
@@ -90,10 +90,10 @@ const Signup = () => {
         </Button>
       </InputWhole>
     </WholeWrap>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;
 
 const WholeWrap = styled.div`
   width: 100%;
@@ -102,23 +102,23 @@ const WholeWrap = styled.div`
   flex-direction: column;
   margin: 0 auto;
   flex: 1 1 0;
-`
+`;
 
 const Title = styled.h2`
   text-align: center;
-`
+`;
 
 const InputWhole = styled.div`
   flex-direction: column;
   width: 10em;
   margin: 0 auto;
   text-align: center;
-`
+`;
 
 const Input = styled.input`
   width: 10em;
   height: 3em;
-`
+`;
 
 const Button = styled.button`
   width: 10em;
@@ -127,10 +127,10 @@ const Button = styled.button`
   :disabled {
     background-color: grey;
   }
-`
+`;
 
 const ErrMsg = styled.p`
   color: red;
   font-size: 10px;
   margin: 5px 0 0 0;
-`
+`;

@@ -14,7 +14,7 @@ const TodoItem = ({ todo, onDeleteTodo, onUpdateTodo, onCompleteTodo }: TodoItem
       <span>{todo.todo}</span>&nbsp;
       <span>{String(todo.isCompleted)}</span>&nbsp;
     </li>
-  )
-}
+  );
+};
 
 export default TodoItem;

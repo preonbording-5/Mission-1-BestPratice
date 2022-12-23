@@ -1,5 +1,5 @@
 const Navbar = () => {
-  return null
-}
+  return null;
+};
 
-export default Navbar
+export default Navbar;

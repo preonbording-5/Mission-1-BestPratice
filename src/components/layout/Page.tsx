@@ -1,22 +1,22 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import Layout from './Layout'
+import Layout from './Layout';
 
 interface Props {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const Page = ({ children }: Props) => (
   <Container>
     <Layout>{children}</Layout>
   </Container>
-)
+);
 
-export default Page
+export default Page;
 
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: #f1f1f1;
-`
+`;

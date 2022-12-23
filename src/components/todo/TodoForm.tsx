@@ -3,15 +3,13 @@ import todoApi, { ITodo } from '../../lib/apis/todoApi';
 
 interface TodoFormProps {
   onAddTodo: (newTodo: ITodo) => void;
-
 }
 
 const TodoForm = ({ onAddTodo }: TodoFormProps) => {
-  const [todo, setTodo] = useState('')
+  const [todo, setTodo] = useState('');
 
   const handleAddTodo = (e: React.FormEvent<HTMLFormElement | HTMLButtonElement>) => {
-
-e.preventDefault();
+    e.preventDefault();
     todoApi
       .postTodo(todo)
       .then((res) => {
@@ -23,8 +21,7 @@ e.preventDefault();
     setTodo('');
   };
 
-
-  const handleChangeTodo = (e: React.ChangeEvent<HTMLInputElement>) => setTodo(e.target.value)
+  const handleChangeTodo = (e: React.ChangeEvent<HTMLInputElement>) => setTodo(e.target.value);
 
   return (
     <form onSubmit={handleAddTodo}>
@@ -33,7 +30,7 @@ e.preventDefault();
         추가
       </button>
     </form>
-  )
-}
+  );
+};
 
-export default TodoForm
+export default TodoForm;

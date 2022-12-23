@@ -5,17 +5,15 @@ import Signin from '../components/register/Signin';
 import { getAccessToken } from '../lib/apis/tokenStore';
 import styled from 'styled-components';
 
-
 type RegisterMode = 'signUp' | 'signIn';
 
 const Register = () => {
   const navigate = useNavigate();
   const [mode, setMode] = useState<RegisterMode>('signIn');
 
-
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-  }
+  };
 
   const handleClickRegisterChange = () => {
     if (mode === 'signIn') {
@@ -23,27 +21,25 @@ const Register = () => {
       return;
     }
     setMode('signIn');
-  }
+  };
 
   useEffect(() => {
     if (getAccessToken()) {
       navigate('/todo');
     }
-  }, [navigate])
+  }, [navigate]);
 
   return (
     <Container>
       {mode === 'signUp' ? <Signup /> : <Signin />}
       <Button onClick={handleClickRegisterChange}>
-        {
-          mode === 'signIn' ? '회원가입 하러가기' : '로그인 하러가기'
-        }
+        {mode === 'signIn' ? '회원가입 하러가기' : '로그인 하러가기'}
       </Button>
     </Container>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;
 
 const Container = styled.div`
   display: flex;
