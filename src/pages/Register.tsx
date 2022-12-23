@@ -14,9 +14,6 @@ const Register = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-
-
-    mode === 'signUp' ? <Signup /> : <Signin />
   }
 
   useEffect(() => {
@@ -25,7 +22,9 @@ const Register = () => {
     }
   }, [navigate])
 
-  return <></>
+  return <div>
+    {mode === 'signUp' ? <Signup/> : <Signin/>}
+  </div>
 }
 
 export default Register
