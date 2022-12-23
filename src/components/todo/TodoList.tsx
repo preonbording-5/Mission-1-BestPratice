@@ -26,4 +26,5 @@ const TodoList = ({ todos, onDeleteTodo, onUpdateTodo, onCompleteTodo }: TodoLis
   );
 };
 
-export default TodoList;
+
+export default TodoList

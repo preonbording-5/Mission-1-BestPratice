@@ -1,11 +1,10 @@
+const regex = {
+  email: /^[a-zA-Z0-9+-.]*@[a-zA-Z0-9+-.]*$/,
+  password: /^.{8,}$/,
+}
+
 const getRegexVerification = (type: 'email' | 'password', value: string) => {
-  const email = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i
-  const password = /^.{8,}$/
-  if (type === 'email') {
-    return email.test(value)
-  } else {
-    return password.test(value)
-  }
+  return regex[type].test(value)
 }
 
 export default getRegexVerification
