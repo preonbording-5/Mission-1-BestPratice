@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 import TodoForm from '../components/todo/TodoForm';
 import TodoList from '../components/todo/TodoList';
@@ -93,7 +94,7 @@ const Todo = () => {
   if (error) return <div>error!</div>;
 
   return !loading ? (
-    <div>
+    <TodoContainer>
       <TodoForm onAddTodo={onAddTodo} />
       <TodoList
         todos={todos}
@@ -101,10 +102,19 @@ const Todo = () => {
         onUpdateTodo={onUpdateTodo}
         onCompleteTodo={onCompleteTodo}
       />
-    </div>
+    </TodoContainer>
   ) : (
     <div>loading...</div>
   );
 };
 
 export default Todo;
+
+const TodoContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
