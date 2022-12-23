@@ -102,6 +102,7 @@ const WholeWrap = styled.div`
   flex-direction: column;
   margin: 0 auto;
 `;
+n
 
 const Title = styled.h2`
   text-align: center;

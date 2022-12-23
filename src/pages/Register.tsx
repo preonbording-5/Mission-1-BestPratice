@@ -14,6 +14,7 @@ const Register = () => {
     e.preventDefault();
   };
 
+
   useEffect(() => {
     if (getAccessToken()) {
       navigate('/todo');

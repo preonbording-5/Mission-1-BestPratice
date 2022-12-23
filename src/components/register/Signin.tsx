@@ -86,6 +86,7 @@ const WholeWrap = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+
 `;
 
 const Title = styled.h2`
