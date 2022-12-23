@@ -125,5 +125,5 @@ npm start
 
 ### 📌 기술 스택 및 라이브러리
 ```
-typescript, axios, styled-components, react-router-dom 
+typescript, axios, styled-components, react-router-dom, ESLint, Prettier, Husky
 ```
