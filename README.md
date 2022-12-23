@@ -72,7 +72,10 @@ npm start
 ---
 ### 1. 초기 세팅 
 
-#### ✅ Eslint
+<details>
+  <summary> ✅ Eslint</summary>
+  <div markdown="1">
+    
 ```typescript
 {
   "settings": {
@@ -114,6 +117,8 @@ npm start
   }
 }
 ```
+  </div>
+  </details>
 
 ### 2. 로그인 / 회원가입
 
@@ -178,6 +183,7 @@ export const setInterceptors = (axiosInstance: AxiosInstance) => {
   return axiosInstance
 }
  ```
+  
 
 
 
