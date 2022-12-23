@@ -44,6 +44,17 @@
 
 
 ## 👨‍👩‍👧‍👦 팀 소개
+
+| 이름      | 개인 Repository 주소                             |
+| -------- | ---------------------------------------------- |
+| 김은정     | https://github.com/eunjung0613                 |
+| 박인      | https://github.com/innie0526                   |
+| 오신정     | https://github.com/ShinjungOh                  |
+| 이민지     | https://github.com/vanillovin                  |
+| 이정우     | https://github.com/azerose                     |
+| 최영수     | https://github.com/InvincibleGaren             |
+| 황성택     | https://github.com/Seongtaek-H                 |
+
   
 
 ## ✨ 프로젝트 실행방법
