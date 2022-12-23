@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ITodo } from '../../lib/apis/todoApi';
+import todoApi, { ITodo } from '../../lib/apis/todoApi';
 
 interface TodoFormProps {
   onAddTodo: (newTodo: ITodo) => void;
@@ -10,13 +10,14 @@ const TodoForm = ({ onAddTodo }: TodoFormProps) => {
 
   const handleAddTodo = (e: React.FormEvent<HTMLFormElement | HTMLButtonElement>) => {
     e.preventDefault();
-    const newTodo = {
-      id: Date.now(),
-      todo,
-      isCompleted: false,
-      userId: 1,
-    };
-    onAddTodo(newTodo);
+    todoApi
+      .postTodo(todo)
+      .then((res) => {
+        onAddTodo(res.data);
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
     setTodo('');
   };
 

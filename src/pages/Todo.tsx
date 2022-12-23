@@ -41,11 +41,9 @@ const Todo = () => {
     todoApi
       .getTodos()
       .then((res) => {
-        // console.log('getTodo data', res.data)
         setTodoData((prev) => successTodoData(prev, res.data));
       })
       .catch((err) => {
-        console.log('getTodo err', err);
         setTodoData((prev) => errorTodoData(prev, err));
       });
   }, []);

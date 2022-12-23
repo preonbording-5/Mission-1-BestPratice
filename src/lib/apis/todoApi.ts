@@ -7,7 +7,7 @@ export interface ITodo {
   userId: number;
 }
 
-const postTodo = async (todo: Pick<ITodo, 'todo'>) => {
+const postTodo = async (todo: string) => {
   const url = '/todos';
   const data = {
     todo,
