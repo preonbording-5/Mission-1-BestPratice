@@ -247,10 +247,34 @@ const handleSignUpClick = async () => {
   - 투두 리스트의 개별 아이템 우측에 삭제버튼이 존재하고 해당 버튼을 누르면 투두 리스트가 삭제
 
 <details>
-  <summary> ✅ 투두 리스트 수정 및 완료 여부 코드</summary>
+  <summary> ✅ 투두 리스트 수정, 삭제 및 완료 여부 코드</summary>
   <div markdown="1">
     
 ```typescript
+    // src/components/todo/TodoItem.tsx
+    
+   const handleDeleteTodo = () => {
+    todoApi
+      .deleteTodo(id)
+      .then(() => {
+        onDeleteTodo(id);
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  };
+
+  const handleUpdateTodo = () => {
+    todoApi
+      .putTodo({ id, todo: text, isCompleted: false, userId })
+      .then((res) => {
+        onUpdateTodo(res.data.id, res.data.todo);
+        onCloseEdit();
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  };
  const handleCompleteTodo = () => {
     todoApi.putTodo({ id, todo, isCompleted: !isCompleted, userId }).then((res) => {
       onCompleteTodo(id);
