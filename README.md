@@ -84,7 +84,9 @@ npm start
  - 정규 표현식을 사용하였으며 따로 분리해서 이용하였습니다
  - 이유 : 가독성, 리팩토링 수월, 정규 표현식이 많아졌을 경우 확장성 고려했기 때문
    
- ```
+ ```typescript
+ // src/lib/utils/Getregex.tsx
+ 
  const regex = {
   email: /^[a-zA-Z0-9+-.]*@[a-zA-Z0-9+-.]*$/,
   password: /^.{8,}$/,
@@ -106,7 +108,9 @@ export default getRegexVerification
 > 📌 API 호출
  - axios 사용
  - 이유 : 편의성, 인터셉터(공식 문서 참고)
- ```
+ ```typescript
+ // src/lib/apis/axiosIntercepters.ts
+ 
  import { AxiosInstance } from 'axios'
 
 export const setInterceptors = (axiosInstance: AxiosInstance) => {
@@ -128,6 +132,18 @@ export const setInterceptors = (axiosInstance: AxiosInstance) => {
 - 로그인 여부에 따른 리다이렉트 처리를 구현
   - 로컬 스토리지에 토큰이 있는 상태로 `/` 페이지에 접속한다면 `/todo` 경로로 리다이렉트 
   - 로컬 스토리지에 토큰이 없는 상태로 `/todo`페이지에 접속한다면 `/` 경로로 리다이렉트 
+
+```typescript
+// src/components/register/Signin.tsx
+  const handlLoginClick = async () => {
+    try {
+      const response = await postSignIn.postSignIn(user)
+      alert('로그인 성공')
+      setAccessToken(response.data.access_token)
+      navigate('/todo')
+    } 
+  }
+```
 
 ---
 
