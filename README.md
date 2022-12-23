@@ -52,6 +52,7 @@ npm start
 ```
 
 <hr/>  
+
 ### commit msg
 
 > 해당 프로젝트는 comitlint를 활용하여 다음과 같은 commit convention prefix를 가집니다.
