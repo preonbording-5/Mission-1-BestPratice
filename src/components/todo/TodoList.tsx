@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { ITodo } from '../../lib/apis/todoApi';
 import TodoItem from './TodoItem';
 
@@ -10,7 +11,7 @@ interface TodoListProps {
 
 const TodoList = ({ todos, onDeleteTodo, onUpdateTodo, onCompleteTodo }: TodoListProps) => {
   return (
-    <ul>
+    <TodoListContainer>
       {todos.map((item) => {
         return (
           <TodoItem
@@ -22,9 +23,12 @@ const TodoList = ({ todos, onDeleteTodo, onUpdateTodo, onCompleteTodo }: TodoLis
           />
         );
       })}
-    </ul>
+    </TodoListContainer>
   );
 };
 
+export default TodoList;
 
-export default TodoList
+const TodoListContainer = styled.ul`
+  width: 100%;
+`;

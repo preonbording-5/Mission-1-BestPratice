@@ -34,7 +34,7 @@ const putTodo = async (todoItem: ITodo) => {
   return response;
 };
 
-const deleteTodo = async (id: Pick<ITodo, 'id'>) => {
+const deleteTodo = async (id: number) => {
   const url = `/todos/${id}`;
   const response = await axiosInstanceWithToken.delete(url);
   return response;
