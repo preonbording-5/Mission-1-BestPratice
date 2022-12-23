@@ -1,11 +1,11 @@
-import { Todo } from '../../pages/Todo'
-import TodoItem from './TodoItem'
+import { ITodo } from '../../lib/apis/todoApi';
+import TodoItem from './TodoItem';
 
 interface TodoListProps {
-  todos: Todo[]
-  onDeleteTodo: (todoId: number) => void
-  onUpdateTodo: (todoId: number, text: string) => void
-  onCompleteTodo: (todoId: number) => void
+  todos: ITodo[];
+  onDeleteTodo: (todoId: number) => void;
+  onUpdateTodo: (todoId: number, text: string) => void;
+  onCompleteTodo: (todoId: number) => void;
 }
 
 const TodoList = ({ todos, onDeleteTodo, onUpdateTodo, onCompleteTodo }: TodoListProps) => {
@@ -20,10 +20,10 @@ const TodoList = ({ todos, onDeleteTodo, onUpdateTodo, onCompleteTodo }: TodoLis
             onUpdateTodo={onUpdateTodo}
             onCompleteTodo={onCompleteTodo}
           />
-        )
+        );
       })}
     </ul>
-  )
-}
+  );
+};
 
-export default TodoList
+export default TodoList;
